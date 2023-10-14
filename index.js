@@ -1,9 +1,13 @@
 const express= require('express');
-const app= express();
-require('dotenv').config()
-const connectDB=require('./db/connect')
+const app= express(); //   server app
+require('dotenv').config() // environment variables
+const connectDB=require('./db/connect')  //database connector
+const userRouter=('./routes/userRouter')
+
 
 app.use(express.json())
+
+app.use('api/users', userRouter)
 
 const start= async ()=>{
 
