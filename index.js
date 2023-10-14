@@ -2,12 +2,12 @@ const express= require('express');
 const app= express(); //   server app
 require('dotenv').config() // environment variables
 const connectDB=require('./db/connect')  //database connector
-const userRouter=('./routes/userRouter')
+const userRouter=require('./routes/userRouter')
 
 
 app.use(express.json())
 
-app.use('api/users', userRouter)
+app.use('api/users',userRouter)
 
 const start= async ()=>{
 

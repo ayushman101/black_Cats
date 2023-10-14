@@ -27,12 +27,12 @@ const userSchema= new mongoose.Schema(
 )
 
 
-UserSchema.methods.createJWT= function (){
+userSchema.methods.createJWT= function (){
 
 		return jwt.sign({ userID: this._id, name: this.userName},
-				{ process.env.JWT_SECRET},
+				 process.env.JWT_SECRET,
 				{expiresIn: "60d"}
 		)
 }
 
-module.exports=mongoose.model('User',UserSchema);
+module.exports=mongoose.model('User',userSchema);
