@@ -5,9 +5,6 @@ const connectDB=require('./db/connect')
 
 app.use(express.json())
 
-
-
-
 const start= async ()=>{
 
 	try{
