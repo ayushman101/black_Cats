@@ -11,15 +11,19 @@ const login= async (req, res)=>{
 	const user= await Users.findOne({email})
 
 	if(!user)
+		{
+		console.log("user not found")
 		res.status(404).json("Wrong Username or Password")
-
+		}
 	{
-	bytes= cryptojs.AES.decrypt(user.password, process.env.JWT_SECRET).toString()
+	bytes= cryptojs.AES.decrypt(user.password, process.env.JWT_SECRET)
 	const originalPassword= bytes.toString(cryptojs.enc.Utf8)
 
 	if(originalPassword!==password)
-		res.status(404).json("Wrong Username or password")
-
+		{
+			console.log("Wrong password")
+			res.status(404).json("Wrong Username or password")
+		}
 		else{
 
 			const token= user.createJWT();
