@@ -7,7 +7,7 @@ const userRouter=require('./routes/userRouter')
 
 app.use(express.json())
 
-app.use('api/users',userRouter)
+app.use('/api/users',userRouter)
 
 const start= async ()=>{
 
